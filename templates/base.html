@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>Zendesk Tickets</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class=container>
+  Tickets
+  <hr>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  {% endwith %}
+
+
+  {% if session %}
+  <a href="/logout">Logout</a>
+  {% endif %}
+
+
+
+  {% block content %} put your content here {% endblock %}
+
+  </div>
+</body>
+</html>

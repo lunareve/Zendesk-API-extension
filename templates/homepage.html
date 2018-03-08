@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Zendesk Tickets</h1>
+
+<h2>Enter your Zendesk credentials:</h2>
+
+<form action="/" method="POST">
+
+  <label>Email address:
+    <input type="email" name="email" required>
+  </label>
+  <br>
+  <label>Password:
+    <input type="password" name="password" required>
+  </label>
+  <br>
+  <label>Zendesk subdomain:
+    <input type="text" name="subdomain" required>
+  </label>
+  <br>
+  <input class="btn btn-default" type="submit">
+
+  </form>
+
+{% if session %}
+<h2>Tickets</h2>
+<p><a href="/tickets">View all tickets</a></p>
+{% endif %}
+
+{% endblock %}
