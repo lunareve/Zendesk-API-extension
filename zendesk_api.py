@@ -15,4 +15,6 @@ def request(url, email, pw):
     """Returns tickets in JSON."""
 
     r = requests.get(url, auth=(email, pw))
+    if r.status_code != 200:
+        print('Status:', r.status_code, 'Problem with the request.')
     return r.json()

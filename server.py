@@ -48,7 +48,14 @@ def log_user_out():
 def ticket_list():
     """Shows the list of tickets."""
     resp = zd.request(zd.format_subdomain(session["subdomain"]), session["email"], session["password"])
-    tix = resp["tickets"]
+
+    try:
+        tix = resp["tickets"]
+    except KeyError:
+        flash(resp)
+        flash("Please logout and try logging in again")
+        return render_template("homepage.html")
+
     return render_template("ticket_list.html", tickets=tix)
 
 
