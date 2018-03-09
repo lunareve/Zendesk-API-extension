@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Zendesk Tickets</h1>
-
 <h2>Enter your Zendesk credentials:</h2>
 
 <form action="/" method="POST">
@@ -24,7 +22,6 @@
   </form>
 
 {% if session %}
-<h2>Tickets</h2>
 <p><a href="/tickets">View all tickets</a></p>
 {% endif %}
 
